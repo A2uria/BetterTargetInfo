@@ -63,8 +63,7 @@ public sealed class BetterTargetInfo : IDalamudPlugin
             var node = addon->GetTextNodeById(10);
             if (node != null && f is IPlayerCharacter p)
             {
-                var x = new string(p.Level.ToString().Select(x => (char)(x + 0xe030)).ToArray());
-                node->SetText($"{x}\u7ea7 [{p.ClassJob.GameData?.Name.RawString}] {p.Name.TextValue}");
+                node->SetText($"[{p.ClassJob.GameData?.Name.RawString}] {p.Name.TextValue}");
             }
         }
     }
