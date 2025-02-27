@@ -37,7 +37,7 @@ public sealed class BetterTargetInfo : IDalamudPlugin
             var node = addon->GetTextNodeById(16);
             if (node != null && t is IPlayerCharacter p)
             {
-                node->SetText($"[{p.ClassJob.GameData?.Name.RawString}] {p.Name.TextValue}");
+                node->SetText($"[{p.ClassJob.Value.Name.ExtractText()}] {p.Name.TextValue}");
             }
         }
 
@@ -47,7 +47,7 @@ public sealed class BetterTargetInfo : IDalamudPlugin
             var node = addon->GetTextNodeById(7);
             if (node != null && tt is IPlayerCharacter p)
             {
-                node->SetText($"[{p.ClassJob.GameData?.Name.RawString}] {p.Name.TextValue}");
+                node->SetText($"[{p.ClassJob.Value.Name.ExtractText()}] {p.Name.TextValue}");
             }
         }
     }
@@ -63,7 +63,7 @@ public sealed class BetterTargetInfo : IDalamudPlugin
             var node = addon->GetTextNodeById(10);
             if (node != null && f is IPlayerCharacter p)
             {
-                node->SetText($"[{p.ClassJob.GameData?.Name.RawString}] {p.Name.TextValue}");
+                node->SetText($"[{p.ClassJob.Value.Name.ExtractText()}] {p.Name.TextValue}");
             }
         }
     }
