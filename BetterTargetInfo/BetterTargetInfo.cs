@@ -12,7 +12,7 @@ namespace BetterTargetInfo;
 public sealed class BetterTargetInfo : IDalamudPlugin
 {
     [PluginService] internal static IAddonLifecycle AddonLifecycle { get; private set; } = null!;
-    [PluginService] internal static ITargetManager Targets { get; private set; } = null!;
+    [PluginService] internal static ITargetManager TargetManager { get; private set; } = null!;
 
     public BetterTargetInfo()
     {
@@ -31,7 +31,7 @@ public sealed class BetterTargetInfo : IDalamudPlugin
         var addon = (AtkUnitBase*)args.Addon;
         if (addon == null || !addon->IsVisible) return;
 
-        var t = Targets.Target;
+        var t = TargetManager.Target;
         if (t != null)
         {
             var node = addon->GetTextNodeById(16);
@@ -41,7 +41,7 @@ public sealed class BetterTargetInfo : IDalamudPlugin
             }
         }
 
-        var tt = Targets.Target?.TargetObject;
+        var tt = TargetManager.Target?.TargetObject;
         if (tt != null)
         {
             var node = addon->GetTextNodeById(7);
@@ -57,7 +57,7 @@ public sealed class BetterTargetInfo : IDalamudPlugin
         var addon = (AtkUnitBase*)args.Addon;
         if (addon == null || !addon->IsVisible) return;
 
-        var f = Targets.FocusTarget;
+        var f = TargetManager.FocusTarget;
         if (f != null)
         {
             var node = addon->GetTextNodeById(10);
